@@ -1,6 +1,6 @@
 ﻿using Challenges;
 
-miniMaxSums.miniMaxSum(new int[] { 256741038, 623958417, 467905213, 714532089, 938071625 }.ToList());
+kangaroos.kangaroo(1113, 612, 1331, 610);
 
 Console.WriteLine(timeConversion.timeConversions("12:45:54PM"));
 
