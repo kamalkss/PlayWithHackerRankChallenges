@@ -1,56 +1,43 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace Challenges
+
+public class ClimbingtheLeaderboards
 {
-    public class ClimbingtheLeaderboards
+    public static List<int> climbingLeaderboard(List<int> ranked, List<int> player)
     {
-        public static List<int> climbingLeaderboard(List<int> ranked, List<int> player)
+        var Result = new List<int>();
+        //make ranked List distict
+        var rankedDistinct = ranked.Distinct().ToList();
+
+        foreach (var Alicescore in player)
         {
-            List<int> Result = new List<int>();
-            // Dense Ranking
-
-            int Alice = 0;
-            int AlicePosition = ranked.IndexOf(ranked.Max()) + 1;
-            foreach (var score in player)
+            //Compare AliceScore with each element in rankedDistinct
+            //var rank = rankedDistinct.Count(x => x > Alicescore);
+            int counter = 0;
+            for (int i = 0; i < rankedDistinct.Count; i++)
             {
-                Alice += score;
-
-                for (int i = 0; i < ranked.Count; i++)
-                {
-                    if (Alice > ranked[i])
-                    {
-                        Console.WriteLine(ranked[i]);
-                        AlicePosition++;
-                    }
-                    else if (Alice == ranked[i])
-                    {
-                        Result.Add(ranked.IndexOf(ranked[i]));
-                    }
-                    else
-                    {
-                        break;
-                    }
-                }
-
-                foreach (var LeaderScore in ranked)
-                {
-                    //check alice position
-                    if (Alice > LeaderScore)
-                    {
-                        AlicePosition++;
-                        Result.Add(AlicePosition);
-                    }
-                    else if (Alice == LeaderScore)
-                    {
-                        break;
-                    }
-                }
+                
+                if (rankedDistinct[i]>Alicescore)
+                    counter++;
             }
-            return Result;
+            Result.Add(counter + 1);
         }
 
+
+        //rankedDistinct list distinct to Dense Ranking RankedDictionary
+        var RankedDictionary = new Dictionary<int, int>();
+        for (int i = 0; i < rankedDistinct.Count; i++)
+        {
+            RankedDictionary.Add(rankedDistinct[i], i + 1);
+        }
+
+
+        foreach (var score in player)
+        {
+            //compare score with every Score in RankedDictionary
+            var rank = RankedDictionary.Count(pair => pair.Key > score) + 1;
+            Result.Add(rank);
+        }
+
+        return Result;
     }
 }

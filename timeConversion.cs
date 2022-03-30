@@ -34,7 +34,7 @@ namespace Challenges
 
                 if (hour == 12)
                 {
-                    return s.Substring(2, indexofAM);
+                    return s.Substring(0, indexofAM);
                 }
                 else
                 {
