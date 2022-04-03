@@ -1,19 +1,11 @@
 ﻿using Challenges;
 
-int q = Convert.ToInt32(Console.ReadLine().Trim());
+int n = Convert.ToInt32(Console.ReadLine().Trim());
 
-for (int qItr = 0; qItr < q; qItr++)
-{
-    int n = Convert.ToInt32(Console.ReadLine().Trim());
+List<int> arr = Console.ReadLine().TrimEnd().Split(' ').ToList().Select(arrTemp => Convert.ToInt32(arrTemp)).ToList();
 
-    List<List<int>> matrix = new List<List<int>>();
+int m = Convert.ToInt32(Console.ReadLine().Trim());
 
-    for (int i = 0; i < 2 * n; i++)
-    {
-        matrix.Add(Console.ReadLine().TrimEnd().Split(' ').ToList().Select(matrixTemp => Convert.ToInt32(matrixTemp))
-            .ToList());
-    }
-    
-    int result = flippingMatrixs.flippingMatrix(matrix);
-    Console.WriteLine(result);
-}
+List<int> brr = Console.ReadLine().TrimEnd().Split(' ').ToList().Select(brrTemp => Convert.ToInt32(brrTemp)).ToList();
+
+List<int> result = missingNumbersClass.missingNumbers(arr, brr);
