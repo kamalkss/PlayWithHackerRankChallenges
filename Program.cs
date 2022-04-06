@@ -1,11 +1,20 @@
 ﻿using Challenges;
 
-int n = Convert.ToInt32(Console.ReadLine().Trim());
+int t = Convert.ToInt32(Console.ReadLine().Trim());
 
-List<int> arr = Console.ReadLine().TrimEnd().Split(' ').ToList().Select(arrTemp => Convert.ToInt32(arrTemp)).ToList();
+for (int tItr = 0; tItr < t; tItr++)
+{
+    int n = Convert.ToInt32(Console.ReadLine().Trim());
 
-int m = Convert.ToInt32(Console.ReadLine().Trim());
+    List<string> grid = new List<string>();
 
-List<int> brr = Console.ReadLine().TrimEnd().Split(' ').ToList().Select(brrTemp => Convert.ToInt32(brrTemp)).ToList();
+    for (int i = 0; i < n; i++)
+    {
+        string gridItem = Console.ReadLine();
+        grid.Add(gridItem);
+    }
 
-List<int> result = missingNumbersClass.missingNumbers(arr, brr);
+    string result = gridChallengeClass.gridChallenge(grid);
+
+    Console.WriteLine(result);
+}
