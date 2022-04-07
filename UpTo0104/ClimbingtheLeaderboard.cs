@@ -22,6 +22,62 @@ public class ClimbingtheLeaderboards
             Result.Add(counter + 1);
         }
 
+        /*for (int i = 0; i < player.Count; i++)
+            {
+                var playerScore = player[i];
+                if (rankedDistinct.Contains(playerScore))
+                {
+                    Result.Add(rankedDict[playerScore]);
+                }
+                else
+                {
+                    var rank = 0;
+                    var rankIndex = 0;
+                    var rankValue = 0;
+                    foreach (var item in rankedDistinct)
+                    {
+                        if (item < playerScore)
+                        {
+                            rankIndex++;
+                        }
+                        else
+                        {
+                            rankValue = item;
+                            break;
+                        }
+                    }
+                    if (rankValue == 0)
+                    {
+                        rank = rankedDistinct.Count + 1;
+                    }
+                    else
+                    {
+                        rank = rankedDict[rankValue] - rankIndex;
+                    }
+                    Result.Add(rank);
+                }
+            }*/
+
+
+        /*var Result = new List<int>();
+            var rankedDistinct = ranked.Distinct().ToList();
+            var rankedDict = new Dictionary<int, int>();
+            for (int i = 0; i < rankedDistinct.Count; i++)
+            {
+                rankedDict.Add(rankedDistinct[i], i + 1);
+            }
+
+            foreach (var position in player.Select(score => rankedDict.Where(x => x.Key <= score).OrderByDescending(x => x.Key).FirstOrDefault()))
+            {
+                if (position.Key == 0)
+                {
+                    Result.Add(rankedDict.Count + 1);
+                }
+                else
+                {
+                    Result.Add(position.Value);
+                }
+            }*/
 
         //rankedDistinct list distinct to Dense Ranking RankedDictionary
         var RankedDictionary = new Dictionary<int, int>();
